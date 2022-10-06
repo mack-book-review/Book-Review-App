@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load custom_tags %}
+
+{% block title %}
+    All Books
+{% endblock %}
+
+{% block content %}
+
+{% for book in object_list %}
+    <p><a href="{% url 'book-detail' book.pk %}">{{book.title}}</a></p>
+    <p>{{book.author}}</p>
+    <p>{{book.synopsis}}</p>
+    <p>Average Rating: {% calculate_average_rating book %}</p>
+
+    {% if user and user.is_authenticated and user.is_superuser%}
+    <a href="{% url 'book-update' book.pk %}">Update</a><br>
+    <a href="{% url 'book-delete' book.pk %}">Delete</a>
+    <a href="{% url 'review-create' book.pk %}">Write a Review</a>
+    {% elif user and user.is_authenticated and not user.is_superuser %}
+    <a href="{% url 'review-create' book.pk %}">Write a Review</a>
+    {% endif %}
+
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+    {% if user and user.is_authenticated %}
+        <h1>Welcome {{user.username}}</h1>
+
+        <hr>
+        <h2>Here are your reviews: </h2>
+        <ul>
+        {% for review in reviews %}
+        <li>
+            Review of <i>{{ review.book.title }}</i><br>
+            <u>{{ review.title }} / Stars: {{ review.stars }}</u><br>
+            <b>Date Created:</b> {{ review.date_created }} <br>
+            <b>Comments:</b> {{ review.text }}
+        </li>
+        <br>
+        {% endfor %}
+        </ul>
+    {% else %}
+       
+    <form action="{% url 'login-user' %}" method="post" class="form-horizontal">
+        {% csrf_token %}
+        <div class="col-xs-8 col-xs-offset-4">
+            <h2 style="text-align:center;">LOGIN</h2>
+        </div>
+
+        {{form.as_p}}
+
+        {% if form.errors %}
+            <p>Error: could not log in!</p>
+        {% endif %}
+
+        <button type="submit" class="btn btn-primary">Login</button>
+
+        <div class="form-group">
+            {% for message in messages %}
+            <div class="alert alert-danger" role="alert">
+                {{message}}
+            </div>
+            {% endfor %}
+        </div>
+    </form>
+    {% endif %}
+{% endblock %}
