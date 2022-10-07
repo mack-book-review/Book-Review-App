@@ -13,5 +13,8 @@ def calculate_average_rating(book):
     all_star += review.stars
   #combined_star_rating = reduce(lambda r1,r2: r1.stars+r2.stars,reviews)
   total_ratings = book.bookreview_set.count()
-  return round(all_star/total_ratings,2)
+  if total_ratings == 0:
+    return "No Ratings"
+  else:
+    return round(all_star/total_ratings,2)
     

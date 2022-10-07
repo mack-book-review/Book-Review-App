@@ -9,7 +9,7 @@
     <hr>
     {% if results %}
         {% for result in results %}
-            <p>{{result.title}}</p>
+            <p><a href="{% url 'book-detail' result.pk %}">{{result.title}}</a></p>
         {% endfor %}
     {% else %}
         <h2>No results found</h2>

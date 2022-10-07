@@ -43,7 +43,7 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       {% if user and user.is_authenticated and user.is_superuser %}
       
-                        <li><a class="dropdown-item" href="#">Add User</a></li>
+                        <li><a class="dropdown-item" href="{% url 'register-user' %}">Add User</a></li>
                         <li><a class="dropdown-item" href="{% url 'book-create' %}">Add New Book</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{% url 'logout-user' %}">Logout</a></li>
