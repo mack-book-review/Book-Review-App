@@ -17,13 +17,14 @@ jobs:
 
     steps:
      - name: Add PostgresSQL repo, update Linux package manager's package list and install postgres
-     - run: sudo apt-get install wget ca-certificates
-     - run: wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-     - run: sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
-     - run: sudo apt-get update
-     - run: sudo apt-get install postgresql postgresql-contrib
-     - run: sudo -u postgres psql createdb db
-     - run: su - postgres
+       run: | 
+         sudo apt-get install wget ca-certificates
+         wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+         sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+         sudo apt-get update
+         sudo apt-get install postgresql postgresql-contrib
+         sudo -u postgres psql createdb db
+         su - postgres
    
      - uses: actions/checkout@v3
      - name: Set up Python ${{ matrix.python-version }}
