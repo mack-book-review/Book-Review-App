@@ -43,7 +43,7 @@ jobs:
         pip install psycopg2
         
      - name: Set environment variables
-       run:  export DJANGO_SETTINGS_MODULE=booktracker.settings
+       run:  export DJANGO_SETTINGS_MODULE='booktracker.settings'
         
      - name: Run Tests
        run: |
