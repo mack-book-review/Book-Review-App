@@ -23,8 +23,9 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install Dependencies
       run: |
-        python -m pip install --upgrade pip
+        python3 -m pip install --upgrade pip
         pip install -r booktracker/requirements.txt
     - name: Run Tests
       run: |
+        python booktracker/manage.py migrate
         python booktracker/manage.py test
