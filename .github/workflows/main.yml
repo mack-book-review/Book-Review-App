@@ -38,5 +38,5 @@ jobs:
       - name: Start the server
         run: |
           echo "Migrate the database schema and starting the server on port 8000"
-          python3 manage.py migrate
-          python3 manage.py runserver  
+          python3 booktracker/manage.py migrate
+          python3 booktracker/manage.py runserver  
