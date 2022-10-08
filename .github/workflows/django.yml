@@ -13,7 +13,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.9,3.10]
+        python-version: [3.10]
 
     steps:
     - uses: actions/checkout@v3
@@ -33,5 +33,5 @@ jobs:
         
     - name: Run Tests
       run: |
-        python booktracker/manage.py migrate
+        python3 booktracker/manage.py migrate
         pytest booktracker
