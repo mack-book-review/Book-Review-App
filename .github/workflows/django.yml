@@ -34,4 +34,4 @@ jobs:
     - name: Run Tests
       run: |
         python booktracker/manage.py migrate
-        python booktracker/manage.py test
+        pytest booktracker
