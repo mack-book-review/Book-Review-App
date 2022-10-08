@@ -24,9 +24,9 @@ jobs:
          sudo apt-get update
          sudo apt-get install postgresql postgresql-contrib
          sudo service postgresql start
-         sudo -u postgres psql -c 'create database test;'
+         sudo -u postgres psql -c 'create database postgres;'
          sudo -u postgres psql -c "ALTER USER postgres PASSWORD 'postgres';"
-         sudo -u postgres psql -c "CREATE DATABASE postgres;"
+     
 
      
    
