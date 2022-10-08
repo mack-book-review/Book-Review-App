@@ -6,7 +6,7 @@ jobs:
   book-review-app-versions:
     strategy:
       matrix:
-        python-version: ['3.10']
+        python-version: ['3.9','3.10']
     runs-on: ubuntu-latest
     steps:
     
@@ -35,9 +35,12 @@ jobs:
           
       - run: echo "Python has been set up."
       
-      - name: install pip and dependencies
+      - name: install pip
       - run:  python3 -m pip install --upgrade pip
+        
+      - name: install dependencies
       - run: python3 -m pip install -r requirements.txt
+        
        
       - name: Start the server
         run: |
