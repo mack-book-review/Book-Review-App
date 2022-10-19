@@ -1,6 +1,6 @@
 # Book Review App
 
-![App Preview](/assets/images/screenshot.jpg "user interface")
+![App Preview](/screenshot.png "user interface")
 
 A sample website where user's can log in, view a book catalog, and write reviews for different books.  Three tiers of permissions exist for authenticated users.  Admins are authorized to CRUD the book catalog itself.  Registered users are authorized to write reviews for a book in the catalog.  Regular visitors are allowed to view the catalog and reviews left by other users.
 
